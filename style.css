@@ -24,6 +24,7 @@ body {
 .titleAndMenu {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .titleAndMenu h1 {
@@ -74,7 +75,8 @@ body {
 .imagesSneakers .groupSneakers {
     display: flex;
     align-items: center;
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -85,7 +87,6 @@ body {
 }
 
 .groupSneakers img:hover {
-    border: 3px solid orange;
     filter: brightness(80%);
 }
 
@@ -95,7 +96,6 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    padding: 20px;
 }
 
 .titleDescriptionProduct {
@@ -164,11 +164,77 @@ body {
     transition: 0.3s;
 }
 
-#addToCartButton:active {
-    transform: scale(0.95);
-}
-
 #addToCartButton img {
     margin-right: 10px;
     margin-bottom: 5px;
+}
+
+/* responsive */
+@media (max-width: 995px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container .titleAndMenu {
+        flex-direction: column;
+    }
+
+    .container .titleAndMenu nav ul {
+        margin: 20px 0;
+        padding-left: 0;
+    }
+
+    .imagesSneakers, .descriptionsProduct {
+        width: 100%;
+        text-align: center;
+    }
+
+    .imagesSneakers img {
+        width: 100%;
+    }
+
+    .groupSneakers {
+        width: 80%;
+    }
+
+    .descriptionsProduct {
+        padding: 50px 10px;
+    }
+
+    .descriptionsProduct p {
+         max-width: 100%;
+    }
+
+    .sneakerPrice {
+        margin: auto;
+    }
+
+    .addToCart {
+        flex-direction: column;
+        gap: 20px;
+        margin: auto;
+    }
+}
+
+@media(max-width: 475px) {
+    .container .titleAndMenu nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .imagesSneakers .groupSneakers img {
+        max-width: 70px;
+    }
+}
+
+@media(max-width: 330px) {
+    #addToCartButton {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #addToCartButton img {
+        margin: 0;
+        align-items: center;
+    }
 }
